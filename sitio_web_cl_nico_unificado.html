@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lic. Rodrigo Fernández | Nutricionista Clínico en Palermo, CABA</title>
+    <meta name="description" content="Nutricionista clínico en Palermo, CABA con 20+ años de experiencia. Especialista en descenso de peso, resistencia a la insulina, diabetes tipo 2, colesterol e hipertensión. Atención presencial y online.">
+    
+    <!-- Tailwind CSS para diseño clínico moderno y responsivo -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            dark: '#0f172a',
+                            navy: '#1e293b',
+                            blue: '#2563eb',
+                            teal: '#0d9488',
+                            tealHover: '#0f766e',
+                            light: '#f8fafc',
+                            cardBg: '#ffffff'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Schema Markup (Datos Estructurados JSON-LD para SEO Local y Médico) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "Consultorio Nutricional - Lic. Rodrigo Fernández",
+      "image": "foto-rodrigo.jpeg",
+      "@id": "https://tu-dominio.com/#medicalbusiness",
+      "url": "https://tu-dominio.com",
+      "telephone": "+54911XXXXXXXX",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Bulnes 1937",
+        "addressLocality": "Palermo, CABA",
+        "addressRegion": "Buenos Aires",
+        "postalCode": "1425",
+        "addressCountry": "AR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -34.5895,
+        "longitude": -58.4143
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "20:00"
+      },
+      "medicalSpecialty": [
+        "ClinicalNutrition",
+        "Obesity",
+        "Endocrinology",
+        "Diabetes"
+      ],
+      "availableService": [
+        {
+          "@type": "MedicalProcedure",
+          "name": "Control de Peso y Salud Metabólica"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Nutrición para Diabetes y Resistencia a la Insulina"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Control de Colesterol y Dislipidemia"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Abordaje Nutricional para Hipertensión Arterial"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Palermo, CABA"
+        },
+        {
+          "@type": "Country",
+          "name": "Argentina"
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-medical-light text-slate-800 antialiased font-sans flex flex-col min-h-screen">
+
+    <!-- Header / Barra de Navegación Unificada -->
+    <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand / Logo Home -->
+            <button onclick="navigateTo('home')" class="flex items-center gap-3 text-left group focus:outline-none">
+                <div class="w-10 h-10 rounded-xl bg-medical-teal text-white flex items-center justify-center font-bold text-xl shadow-md group-hover:bg-medical-tealHover transition-colors">
+                    <i class="fas fa-heart-pulse"></i>
+                </div>
+                <div>
+                    <span class="text-lg font-bold text-medical-dark leading-tight block group-hover:text-medical-teal transition-colors">Lic. Rodrigo Fernández</span>
+                    <span class="text-xs text-medical-teal font-medium tracking-wide block">Nutrición Clínica & Salud Metabólica</span>
+                </div>
+            </button>
+
+            <!-- Navegación Escritorio -->
+            <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-slate-600">
+                <button onclick="navigateTo('home')" class="nav-link hover:text-medical-teal transition-colors focus:outline-none">Inicio</button>
+                
+                <!-- Menú Desplegable de Servicios -->
+                <div class="relative group">
+                    <button class="hover:text-medical-teal transition-colors flex items-center gap-1 focus:outline-none py-2">
+                        <span>Servicios</span>
+                        <i class="fas fa-chevron-down text-xs text-slate-400"></i>
+                    </button>
+                    <div class="absolute left-0 top-full pt-1 w-64 hidden group-hover:block z-50">
+                        <div class="bg-white rounded-xl shadow-xl border border-slate-200 p-2 space-y-1">
+                            <button onclick="navigateTo('bajar-de-peso')" class="w-full text-left px-3 py-2.5 text-xs font-semibold hover:bg-teal-50 hover:text-medical-teal rounded-lg transition-colors flex items-center gap-2">
+                                <i class="fas fa-weight-scale text-medical-teal w-4"></i> Descenso de Peso
+                            </button>
+                            <button onclick="navigateTo('resistencia-insulina')" class="w-full text-left px-3 py-2.5 text-xs font-semibold hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors flex items-center gap-2">
+                                <i class="fas fa-dna text-blue-600 w-4"></i> Diabetes & Insulina
+                            </button>
+                            <button onclick="navigateTo('colesterol')" class="w-full text-left px-3 py-2.5 text-xs font-semibold hover:bg-emerald-50 hover:text-emerald-600 rounded-lg transition-colors flex items-center gap-2">
+                                <i class="fas fa-heart-pulse text-emerald-600 w-4"></i> Colesterol & Lípidos
+                            </button>
+                            <button onclick="navigateTo('hipertension')" class="w-full text-left px-3 py-2.5 text-xs font-semibold hover:bg-indigo-50 hover:text-indigo-600 rounded-lg transition-colors flex items-center gap-2">
+                                <i class="fas fa-stethoscope text-indigo-600 w-4"></i> Hipertensión Arterial
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="scrollToSection('tratamiento')" class="hover:text-medical-teal transition-colors focus:outline-none">Tratamiento</button>
+                <button onclick="scrollToSection('ubicacion')" class="hover:text-medical-teal transition-colors focus:outline-none">Consultorio</button>
+                <button onclick="scrollToSection('faq')" class="hover:text-medical-teal transition-colors focus:outline-none">Preguntas Frecuentes</button>
+            </nav>
+
+            <!-- CTA Agendar Turno -->
+            <div class="flex items-center gap-3">
+                <a href="https://wa.me/54911XXXXXXXX?text=Hola%20Lic.%20Rodrigo,%20quisiera%20consultar%20por%20un%20turno" 
+                   target="_blank" 
+                   class="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold px-4 py-2.5 rounded-xl transition-all shadow-sm">
+                    <i class="fab fa-whatsapp text-base"></i>
+                    <span class="hidden sm:inline">WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ÁREA DE CONTENIDO DINÁMICO (VISTAS MULTIPÁGINA) -->
+    <main class="flex-grow">
+
+        <!-- ==========================================
+             1. HOME PAGE / PÁGINA PRINCIPAL
+             ========================================== -->
+        <div id="page-home" class="page-view space-y-0">
+            <!-- Hero Principal -->
+            <section class="relative bg-gradient-to-b from-white to-slate-100 py-12 md:py-20 border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        
+                        <!-- Columna Texto Hero -->
+                        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-medical-teal text-xs font-bold">
+                                <span class="w-2 h-2 rounded-full bg-medical-teal animate-pulse"></span>
+                                Palermo, CABA (Bulnes 1937) y Atención Online
+                            </div>
+
+                            <h1 class="text-3xl sm:text-5xl font-black text-medical-dark tracking-tight leading-tight">
+                                Nutricionista en Palermo, CABA <br class="hidden sm:inline">
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-medical-teal to-blue-600">
+                                    Control de Peso y Salud Metabólica
+                                </span>
+                            </h1>
+
+                            <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                                Más de 20 años de experiencia clínica ofreciendo pautas nutricionales personalizadas basadas en evidencia científica. Sin soluciones mágicas ni restricciones extremas: abordamos la causa raíz del peso, la diabetes, el colesterol y la hipertensión.
+                            </p>
+
+                            <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                                <a href="https://wa.me/54911XXXXXXXX?text=Hola%20Lic.%20Rodrigo,%20quiero%20coordinar%20mi%20consulta" 
+                                   target="_blank" 
+                                   class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-7 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all">
+                                    <i class="fab fa-whatsapp text-2xl"></i>
+                                    <span>Agendar por WhatsApp</span>
+                                </a>
+                                <button onclick="scrollToSection('especialidades')" 
+                                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-slate-700 font-bold px-7 py-4 rounded-xl border border-slate-300 shadow-sm transition-all">
+                                    <span>Ver Especialidades</span>
+                                    <i class="fas fa-arrow-down text-xs text-slate-400"></i>
+                                </button>
+                            </div>
+
+                            <div class="pt-6 grid grid-cols-3 gap-4 border-t border-slate-200 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
+                                <div>
+                                    <p class="text-xl font-bold text-medical-dark">20+ Años</p>
+                                    <p class="text-xs text-slate-500 font-medium">Trayectoria Clínica</p>
+                                </div>
+                                <div>
+                                    <p class="text-xl font-bold text-medical-dark">CABA & Online</p>
+                                    <p class="text-xs text-slate-500 font-medium">Todo el país y exterior</p>
+                                </div>
+                                <div>
+                                    <p class="text-xl font-bold text-medical-dark">Evidencia</p>
+                                    <p class="text-xs text-slate-500 font-medium">Criterio profesional</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Columna Foto de Perfil -->
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="relative max-w-sm w-full">
+                                <div class="absolute -inset-2 bg-gradient-to-tr from-medical-teal to-blue-500 rounded-3xl blur-lg opacity-25"></div>
+                                <div class="relative bg-white p-3 rounded-3xl shadow-xl border border-slate-200">
+                                    <div class="overflow-hidden rounded-2xl aspect-square bg-slate-100 flex items-center justify-center">
+                                        <!-- Foto de perfil del Lic. Rodrigo Fernández -->
+                                        <img src="foto-rodrigo.jpeg" 
+                                             alt="Lic. Rodrigo Fernández - Nutricionista Clínico en Palermo" 
+                                             class="w-full h-full object-cover object-top"
+                                             onerror="this.onerror=null; this.src='https://placehold.co/500x500/1e293b/ffffff?text=Lic.+Rodrigo+Fern%C3%A1ndez';">
+                                    </div>
+                                    <div class="p-4 text-center">
+                                        <h3 class="font-bold text-medical-dark text-lg">Lic. Rodrigo Fernández</h3>
+                                        <p class="text-xs text-slate-500 font-medium">Nutrición Clínica & Salud Metabólica</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección de Tarjetas de Servicios con Navegación a las Landings -->
+            <section id="especialidades" class="py-16 md:py-24 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                    
+                    <div class="text-center max-w-3xl mx-auto space-y-4">
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-medical-dark tracking-tight">
+                            Áreas de Especialización Clínica
+                        </h2>
+                        <p class="text-slate-600 text-base sm:text-lg">
+                            Hacé clic en cualquiera de nuestras especialidades para ingresar a su landing page dedicada y conocer la propuesta completa.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        
+                        <!-- Tarjeta 1: Descenso de Peso -->
+                        <div onclick="navigateTo('bajar-de-peso')" class="bg-medical-light p-6 rounded-2xl border border-slate-200 hover:border-medical-teal hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer">
+                            <div class="space-y-4">
+                                <div class="w-14 h-14 rounded-xl bg-teal-100 text-medical-teal flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-weight-scale"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-medical-dark group-hover:text-medical-teal transition-colors">Descenso de Peso</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Reducción de grasa visceral y preservación de masa muscular sin dietas restrictivas extremas.
+                                </p>
+                            </div>
+                            <div class="pt-6 border-t border-slate-200 mt-6 flex items-center justify-between">
+                                <span class="text-xs font-bold text-medical-teal uppercase tracking-wider">Ver Landing Completa</span>
+                                <i class="fas fa-arrow-right text-xs text-medical-teal group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 2: Resistencia a la Insulina -->
+                        <div onclick="navigateTo('resistencia-insulina')" class="bg-medical-light p-6 rounded-2xl border border-slate-200 hover:border-blue-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer">
+                            <div class="space-y-4">
+                                <div class="w-14 h-14 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-dna"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-medical-dark group-hover:text-blue-600 transition-colors">Resistencia a la Insulina & Diabetes</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Estrategia de carga glucémica y combinación de nutrientes para estabilizar la glucemia de raíz.
+                                </p>
+                            </div>
+                            <div class="pt-6 border-t border-slate-200 mt-6 flex items-center justify-between">
+                                <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">Ver Landing Completa</span>
+                                <i class="fas fa-arrow-right text-xs text-blue-600 group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 3: Colesterol -->
+                        <div onclick="navigateTo('colesterol')" class="bg-medical-light p-6 rounded-2xl border border-slate-200 hover:border-emerald-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer">
+                            <div class="space-y-4">
+                                <div class="w-14 h-14 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-heart-pulse"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-medical-dark group-hover:text-emerald-600 transition-colors">Colesterol & Triglicéridos</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Modulación del perfil lipídico y protección cardiovascular incorporando grasas saludables de calidad.
+                                </p>
+                            </div>
+                            <div class="pt-6 border-t border-slate-200 mt-6 flex items-center justify-between">
+                                <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider">Ver Landing Completa</span>
+                                <i class="fas fa-arrow-right text-xs text-emerald-600 group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 4: Hipertensión -->
+                        <div onclick="navigateTo('hipertension')" class="bg-medical-light p-6 rounded-2xl border border-slate-200 hover:border-indigo-500 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group cursor-pointer">
+                            <div class="space-y-4">
+                                <div class="w-14 h-14 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-stethoscope"></i>
+                                </div>
+                                <h3 class="text-xl font-bold text-medical-dark group-hover:text-indigo-600 transition-colors">Hipertensión Arterial</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">
+                                    Gestión inteligente del sodio y aporte de minerales para proteger tus arterias y regular la presión.
+                                </p>
+                            </div>
+                            <div class="pt-6 border-t border-slate-200 mt-6 flex items-center justify-between">
+                                <span class="text-xs font-bold text-indigo-600 uppercase tracking-wider">Ver Landing Completa</span>
+                                <i class="fas fa-arrow-right text-xs text-indigo-600 group-hover:translate-x-1 transition-transform"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Metodología -->
+            <section id="tratamiento" class="py-16 md:py-24 bg-slate-900 text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                    <div class="text-center max-w-3xl mx-auto space-y-4">
+                        <span class="text-medical-teal font-bold text-xs uppercase tracking-widest">Metodología Clínica</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">¿Cómo es el Enfoque en la Consulta?</h2>
+                        <p class="text-slate-400 text-base sm:text-lg">Un proceso transparente y adaptado 100% a tus necesidades reales.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-slate-800/80 p-8 rounded-2xl border border-slate-700 space-y-4">
+                            <span class="text-4xl font-black text-medical-teal opacity-60">01</span>
+                            <h3 class="text-xl font-bold">Evaluación de hábitos e historia</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Revisamos tus antecedentes alimentarios, tus rutinas cotidianas y tus objetivos para diseñar un camino alcanzable.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-800/80 p-8 rounded-2xl border border-slate-700 space-y-4">
+                            <span class="text-4xl font-black text-medical-teal opacity-60">02</span>
+                            <h3 class="text-xl font-bold">Plan alimentario a medida</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Diseñamos una estructura cualitativa y cuantitativa adaptada a tus gustos y horarios, sin prohibiciones arbitrarias.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-800/80 p-8 rounded-2xl border border-slate-700 space-y-4">
+                            <span class="text-4xl font-black text-medical-teal opacity-60">03</span>
+                            <h3 class="text-xl font-bold">Seguimiento y adaptación continua</h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                Evaluamos tus avances periódicamente para realizar los ajustes necesarios y consolidar el cambio de hábitos a largo plazo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Consultorio y Modalidad -->
+            <section id="ubicacion" class="py-16 md:py-24 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="bg-gradient-to-r from-medical-navy to-slate-800 rounded-3xl p-8 sm:p-12 text-white shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
+                        <div class="space-y-6 max-w-2xl text-center lg:text-left">
+                            <span class="px-3 py-1 bg-medical-teal text-white font-bold text-xs rounded-full uppercase tracking-wider">
+                                Atenciones Disponibles
+                            </span>
+                            <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight">
+                                Consultorio en Palermo o Atención Online
+                            </h2>
+                            <p class="text-slate-300 text-base leading-relaxed">
+                                Te esperamos de forma presencial en nuestro consultorio ubicado en <strong class="text-white">Bulnes 1937, Palermo (CABA)</strong>. Si te resulta más conveniente por tiempos o vivís en el interior o exterior, podés realizar el tratamiento mediante nuestra <strong class="text-white">modalidad de consulta online</strong>.
+                            </p>
+                            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm font-semibold text-slate-200">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-location-dot text-medical-teal text-lg"></i>
+                                    <span>Bulnes 1937, Palermo, CABA</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-laptop text-medical-teal text-lg"></i>
+                                    <span>Modalidad Online (Argentina e Internacional)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-shrink-0 w-full lg:w-auto">
+                            <a href="https://wa.me/54911XXXXXXXX?text=Hola%20Lic.%20Rodrigo,%20quisiera%20coordinar%20un%20turno" 
+                               target="_blank" 
+                               class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-400 text-white font-extrabold text-base px-8 py-4 rounded-xl shadow-lg transition-all">
+                                <i class="fab fa-whatsapp text-2xl"></i>
+                                <span>Coordinar Turno por WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Generales -->
+            <section id="faq" class="py-16 md:py-24 bg-slate-50">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                    <div class="text-center space-y-4">
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-medical-dark tracking-tight">Preguntas Frecuentes Generales</h2>
+                        <p class="text-slate-600 text-base">Información importante antes de tu consulta.</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- FAQ 1: Estudios de laboratorio (PAUTA CLÍNICA ESTRICTA) -->
+                        <details class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all">
+                            <summary class="flex items-center justify-between font-bold text-slate-800 text-base sm:text-lg cursor-pointer">
+                                <span>¿Es necesario llevar estudios de laboratorio a la consulta?</span>
+                                <span class="ml-4 transition group-open:rotate-180 text-medical-teal"><i class="fas fa-chevron-down"></i></span>
+                            </summary>
+                            <p class="mt-4 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                                Sí, si contás con análisis de sangre recientes (perfil lipídico, glucemia, hemoglobina glicosilada, etc.), es importante que los traigas directamente el día de la consulta para poder evaluarlos en detalle cara a cara. En caso de no tenerlos o si se requiere actualizar alguna variable, te orientaremos sobre qué valores es necesario revisar en tu próximo control médico.
+                            </p>
+                        </details>
+
+                        <!-- FAQ 2: Ubicación -->
+                        <details class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all">
+                            <summary class="flex items-center justify-between font-bold text-slate-800 text-base sm:text-lg cursor-pointer">
+                                <span>¿Dónde está ubicado el consultorio y en qué horarios atienden?</span>
+                                <span class="ml-4 transition group-open:rotate-180 text-medical-teal"><i class="fas fa-chevron-down"></i></span>
+                            </summary>
+                            <p class="mt-4 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                                Atendemos de forma presencial en la zona de Palermo, Buenos Aires, en la calle <strong>Bulnes 1937 (CABA)</strong>. Es una ubicación de fácil acceso desde Recoleta, Belgrano, Almagro y Villa Crespo. También contamos con atención en modalidad <strong>online</strong> para pacientes de todo el país y del exterior. Los turnos se coordinan previamente por WhatsApp.
+                            </p>
+                        </details>
+
+                        <!-- FAQ 3: Enfoque clínica -->
+                        <details class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all">
+                            <summary class="flex items-center justify-between font-bold text-slate-800 text-base sm:text-lg cursor-pointer">
+                                <span>¿Abordan condiciones clínicas como resistencia a la insulina, hipertensión o colesterol alto?</span>
+                                <span class="ml-4 transition group-open:rotate-180 text-medical-teal"><i class="fas fa-chevron-down"></i></span>
+                            </summary>
+                            <p class="mt-4 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                                Sí, nos especializamos en nutrición clínica para el manejo de enfermedades crónicas no transmisibles y alteraciones metabólicas (síndrome metabólico, diabetes tipo 2, prediabetes, hipertensión arterial y dislipemias). Cada plan alimentario se ajusta rigurosamente para mejorar los indicadores clínicos y acompañar el tratamiento médico correspondiente.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ==========================================
+             2. LANDING PAGE: DESCENSO DE PESO
+             ========================================== -->
+        <div id="page-bajar-de-peso" class="page-view hidden py-12 md:py-20 bg-slate-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                
+                <button onclick="navigateTo('home')" class="inline-flex items-center gap-2 text-sm font-bold text-medical-teal hover:underline focus:outline-none">
+                    <i class="fas fa-arrow-left"></i> Volver a la página principal
+                </button>
+
+                <div class="bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-xl space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 text-medical-teal text-xs font-bold uppercase">
+                        Servicio Especializado
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-medical-dark leading-tight">
+                        Nutricionista para Descenso de Peso y Salud Metabólica en Palermo, CABA
+                    </h1>
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                        Lograr un peso saludable no requiere vivir a dieta ni someterse a restricciones imposibles. Con más de 20 años de experiencia clínica, te ayudamos a reducir grasa corporal preservando tu masa muscular y optimizando tu energía en nuestro consultorio de Palermo o mediante consultas online.
+                    </p>
+                    <a href="https://wa.me/54911XXXXXXXX?text=Hola%20Lic.%20Rodrigo,%20quiero%20coordinar%20mi%20turno%20para%20Descenso%20de%20Peso" 
+                       target="_blank" 
+                       class="inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition-all">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        <span>Agendar Turno para Descenso de Peso</span>
+                    </a>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md space-y-4">
+                    <h2 class="text-2xl font-bold text-medical-dark">Un método sostenible sin efecto rebote</h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Las dietas genéricas bajas en calorías suelen fallar porque no abordan los factores metabólicos y de saciedad. Trabajamos con una pauta cuantitativa y cualitativa adaptada a tu rutina diaria para promover la quema de grasa visceral manteniendo tu masa magra.
+                    </p>
+                </div>
+
+                <!-- FAQ Específica Landing Descenso de Peso -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md space-y-6">
+                    <h2 class="text-2xl font-bold text-medical-dark">Preguntas Frecuentes sobre Descenso de Peso</h2>
+                    <div class="space-y-4">
+                        <details class="group bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <summary class="font-bold text-slate-800 cursor-pointer flex justify-between items-center">
+                                <span>¿Tengo que dejar de comer lo que me gusta para bajar de peso?</span>
+                                <i class="fas fa-chevron-down text-medical-teal transition-transform group-open:rotate-180"></i>
+                            </summary>
+                            <p class="mt-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200 pt-3">
+                                No. No trabajamos con alimentos prohibidos de forma arbitraria. La clave está en estructurar las porciones, mejorar la calidad de los macronutrientes y sostener una rutina flexible en el tiempo.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="text-center bg-medical-navy text-white p-8 rounded-3xl space-y-4 shadow-xl">
+                    <h2 class="text-2xl font-bold">Comenzá tu tratamiento de peso</h2>
+                    <p class="text-sm opacity-90">Atención en Bulnes 1937, Palermo (CABA) o vía online.</p>
+                    <a href="https://wa.me/54911XXXXXXXX?text=Hola%20Lic.%20Rodrigo,%20quisiera%20agendar%20un%20turno" 
+                       target="_blank" 
+                       class="inline-block bg-medical-teal text-white font-bold px-8 py-3.5 rounded-xl shadow-lg hover:bg-medical-tealHover transition-all">
+                        Consultar por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             3. LANDING PAGE: RESISTENCIA A LA INSULINA & DIABETES
+             ========================================== -->
+        <div id="page-resistencia-insulina" class="page-view hidden py-12 md:py-20 bg-slate-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                
+                <button onclick="navigateTo('home')" class="inline-flex items-center gap-2 text-sm font-bold text-medical-teal hover:underline focus:outline-none">
+                    <i class="fas fa-arrow-left"></i> Volver a la página principal
+                </button>
+
+                <!-- Hero Landing -->
+                <div class="bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-xl space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase">
+                        Especialidad Metabólica
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-medical-dark leading-tight">
+                        Nutricionista para Diabetes y Resistencia a la Insulina en Palermo, CABA
+                    </h1>
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                        Vivir con resistencia a la insulina o diabetes tipo 2 no significa resignarse a prohibiciones extremas ni a vivir con miedo a la comida. Con más de 20 años de experiencia clínica, en nuestro consultorio de Palermo te ayudamos a estabilizar tu glucemia, mejorar la sensibilidad celular a la insulina y recuperar tu energía de forma sostenible.
+                    </p>
+                    <a href="https://wa.me/54911XXXXXXXX?text=Hola%20Lic.%20Rodrigo,%20quiero%20coordinar%20turno%20para%20Resistencia%20a%20la%20Insulina/Diabetes" 
+                       target="_blank" 
+                       class="inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition-all">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        <span>Agendar Consulta por WhatsApp</span>
+                    </a>
+                </div>
+
+                <!-- Bloque 1: El problema metabólico -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md space-y-4">
+                    <h2 class="text-2xl font-bold text-medical-dark">¿Cómo impacta la resistencia a la insulina en tu cuerpo y tu peso?</h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Cuando las células dejan de responder adecuadamente a la insulina, el páncreas se ve obligado a producir más cantidad. Este exceso de insulina circulante no solo eleva el riesgo de desarrollar diabetes tipo 2, sino que bloquea la capacidad del cuerpo para quemar grasa, generando inflamación, cansancio crónico después de comer y acumulación de grasa visceral.
+                    </p>
+                    <p class="text-slate-600 text-base leading-relaxed font-semibold">
+                        Las dietas genéricas o bajas en calorías no resuelven el problema de fondo si no se atiende la raíz metabólica del cuadro.
+                    </p>
+                </div>
+
+                <!-- Bloque 2: Metodología adaptada -->
+                <div class="bg-slate-900 text-white p-8 md:p-10 rounded-3xl space-y-6">
+                    <h2 class="text-2xl font-bold text-medical-teal">Nuestro enfoque clínico para el manejo de la glucemia</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 space-y-3">
+                            <span class="text-xs font-bold text-medical-teal uppercase">Paso 1</span>
+                            <h3 class="text-lg font-bold">Evaluación de hábitos y factores</h3>
+                            <p class="text-slate-300 text-xs leading-relaxed">
+                                Revisamos tu historial clínico, tus rutinas alimentarias y detectamos qué factores están alterando tu respuesta a la insulina.
+                            </p>
+                        </div>
+                        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 space-y-3">
+                            <span class="text-xs font-bold text-medical-teal uppercase">Paso 2</span>
+                            <h3 class="text-lg font-bold">Distribución de carga glucémica</h3>
+                            <p class="text-slate-300 text-xs leading-relaxed">
+                                Seleccionamos adecuadamente los nutrientes y enseñamos a combinarlos con proteínas y grasas para evitar picos de glucosa.
+                            </p>
+                        </div>
+                        <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 space-y-3">
+                            <span class="text-xs font-bold text-medical-teal uppercase">Paso 3</span>
+                            <h3 class="text-lg font-bold">Flexibilidad y sostenibilidad</h3>
+                            <p class="text-slate-300 text-xs leading-relaxed">
+                                Diseñamos una estructura adaptada a tu trabajo y ritmo de vida, garantizando un hábito duradero sin sacrificios absurdos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Diabetes -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md space-y-6">
+                    <h2 class="text-2xl font-bold text-medical-dark">Preguntas Frecuentes sobre Diabetes e Insulina</h2>
+                    <div class="space-y-4">
+                        <details class="group bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <summary class="font-bold text-slate-800 cursor-pointer flex justify-between items-center">
+                                <span>¿Tengo que eliminar por completo los carbohidratos si tengo prediabetes?</span>
+                                <i class="fas fa-chevron-down text-medical-teal transition-transform group-open:rotate-180"></i>
+                            </summary>
+                            <p class="mt-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200 pt-3">
+                                Para nada. Eliminar los carbohidratos de forma drástica suele ser insostenible. Lo que hacemos es evaluar la calidad de los hidratos y combinarlos adecuadamente con proteínas y grasas para mantener la glucemia estable sin pasar hambre.
+                            </p>
+                        </details>
+                        <details class="group bg-slate-50 p-4 rounded-xl border border-slate-200">
+                            <summary class="font-bold text-slate-800 cursor-pointer flex justify-between items-center">
+                                <span>¿Por qué me cuesta tanto bajar de peso con resistencia a la insulina?</span>
+                                <i class="fas fa-chevron-down text-medical-teal transition-transform group-open:rotate-180"></i>
+                            </summary>
+                            <p class="mt-3 text-xs text-slate-600 leading-relaxed border-t border-slate-200 pt-3">
+                                El exceso de insulina en sangre actúa bloqueando la capacidad del cuerpo para movilizar y utilizar la grasa almacenada. Mientras no se regule este mecanismo metabólico, las dietas hipocalóricas tradicionales suelen fallar.
+                            </p>
+                        </details>
+                    </div>
+                </div>
+
+                <div class="text-center bg-gradient-to-r from-medical-teal to-blue-600 text-white p-8 rounded-3xl space-y-4 shadow-xl">
+                    <h2 class="text-2xl font-bold">Tomá el control de tu metabolismo</h2>
+                    <p class="text-sm opacity-90">Atención presencial en Bulnes 1937, Palermo (CABA) o consulta online.</p>
+                    <a href="https://wa.me/54911XXXXXXXX?text=Hola%20Lic.%20Rodrigo,%20quiero%20coordinar%20mi%20turno%20para%20Diabetes/Insulina" 
+                       target="_blank" 
+                       class="inline-block bg-white text-medical-dark font-bold px-8 py-3.5 rounded-xl shadow-lg hover:bg-slate-100 transition-all">
+                        Agendar Turno por WhatsApp
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ==========================================
+             4. LANDING PAGE: COLESTEROL & DISLIPIDEMIA
+             ========================================== -->
+        <div id="page-colesterol" class="page-view hidden py-12 md:py-20 bg-slate-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                
+                <button onclick="navigateTo('home')" class="inline-flex items-center gap-2 text-sm font-bold text-medical-teal hover:underline focus:outline-none">
+                    <i class="fas fa-arrow-left"></i> Volver a la página principal
+                </button>
+
+                <div class="bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-xl space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs font-bold uppercase">
+                        Salud Cardiovascular
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-medical-dark leading-tight">
+                        Nutricionista para Colesterol Alto y Dislipidemia en Palermo, CABA
+                    </h1>
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                        Un perfil lipídico alterado (colesterol LDL alto o triglicéridos elevados) es una señal de alerta de nuestro sistema cardiovascular. Te ayudamos a mejorar tus valores a través de cambios reales en la alimentación, protegiendo tu salud a largo plazo sin restricciones absurdas.
+                    </p>
+                    <a href="https://wa.me/54911XXXXXXXX?text=Hola%20Lic.%20Rodrigo,%20quisiera%20agendar%20un%20turno%20para%20Control%20de%20Colesterol" 
+                       target="_blank" 
+                       class="inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition-all">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        <span>Agendar Turno por WhatsApp</span>
+                    </a>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md space-y-4">
+                    <h2 class="text-2xl font-bold text-medical-dark">¿Por qué se altera el colesterol y cómo influye la nutrición?</h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        El colesterol no se resuelve simplemente eliminando por completo las grasas. Está profundamente influenciado por los azúcares refinados, los ultraprocesados y la falta de fibra soluble. Diseñamos un plan enfocado en incorporar grasas saludables de buena calidad y reorganizar los carbohidratos de tu día a día.
+                    </p>
+                </div>
+
+                <div class="text-center bg-emerald-900 text-white p-8 rounded-3xl space-y-4 shadow-xl">
+                    <h2 class="text-2xl font-bold">Cuidá tu salud cardiovascular hoy</h2>
+                    <p class="text-sm opacity-90">Consultorio presencial en Palermo o atención online.</p>
+                    <a href="https://wa.me/54911XXXXXXXX?text=Hola%20Lic.%20Rodrigo,%20quiero%20coordinar%20por%20Colesterol" 
+                       target="_blank" 
+                       class="inline-block bg-white text-emerald-900 font-bold px-8 py-3.5 rounded-xl shadow-lg hover:bg-slate-100 transition-all">
+                        Solicitar Turno por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             5. LANDING PAGE: HIPERTENSIÓN ARTERIAL
+             ========================================== -->
+        <div id="page-hipertension" class="page-view hidden py-12 md:py-20 bg-slate-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                
+                <button onclick="navigateTo('home')" class="inline-flex items-center gap-2 text-sm font-bold text-medical-teal hover:underline focus:outline-none">
+                    <i class="fas fa-arrow-left"></i> Volver a la página principal
+                </button>
+
+                <div class="bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-xl space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-bold uppercase">
+                        Cuidado Vascular
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl font-extrabold text-medical-dark leading-tight">
+                        Nutricionista para Hipertensión Arterial y Salud Cardiovascular en Palermo, CABA
+                    </h1>
+                    <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                        Acompañamos tu tratamiento médico mediante una alimentación adaptada, reduciendo el impacto del sodio de forma inteligente e incorporando minerales protectores como potasio y magnesio, sin que tus platos pierdan sabor.
+                    </p>
+                    <a href="https://wa.me/54911XXXXXXXX?text=Hola%20Lic.%20Rodrigo,%20quisiera%20agendar%20un%20turno%20para%20Hipertensión%20Arterial" 
+                       target="_blank" 
+                       class="inline-flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3.5 rounded-xl shadow-md transition-all">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        <span>Agendar Turno por WhatsApp</span>
+                    </a>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-md space-y-4">
+                    <h2 class="text-2xl font-bold text-medical-dark">Mucho más que "sacar el salero"</h2>
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Si bien la gestión del sodio es importante, la salud vascular está profundamente conectada con otros factores: el peso corporal, el grado de inflamación y el consumo de potasio, magnesio y antioxidantes.
+                    </p>
+                </div>
+
+                <div class="text-center bg-indigo-900 text-white p-8 rounded-3xl space-y-4 shadow-xl">
+                    <h2 class="text-2xl font-bold">Cuidá tu presión arterial hoy</h2>
+                    <p class="text-sm opacity-90">Consultorio en Bulnes 1937, Palermo (CABA) y consulta online.</p>
+                    <a href="https://wa.me/54911XXXXXXXX?text=Hola%20Lic.%20Rodrigo,%20quiero%20turnos%20para%20Hipertensión" 
+                       target="_blank" 
+                       class="inline-block bg-white text-indigo-900 font-bold px-8 py-3.5 rounded-xl shadow-lg hover:bg-slate-100 transition-all">
+                        Agendar Turno por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer General -->
+    <footer class="bg-medical-dark text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4 text-xs sm:text-sm">
+            <div class="flex justify-center items-center gap-3 text-white font-bold text-lg">
+                <i class="fas fa-heart-pulse text-medical-teal"></i>
+                <span>Lic. Rodrigo Fernández</span>
+            </div>
+            <p class="text-slate-400">Nutrición Clínica y Salud Metabólica | MP 20+ Años de Experiencia</p>
+            <p>Bulnes 1937, Palermo, CABA, Argentina • Atención Presencial y Consulta Online</p>
+            <p class="pt-4 text-slate-600 text-xs">&copy; 2026 Lic. Rodrigo Fernández. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- LÓGICA DE NAVEGACIÓN SPA MULTIPÁGINA (JavaScript) -->
+    <script>
+        // Función para cambiar de vista/landing de forma fluida
+        function navigateTo(pageId) {
+            // Ocultar todas las páginas
+            const pages = document.querySelectorAll('.page-view');
+            pages.forEach(page => page.classList.add('hidden'));
+
+            // Mostrar la landing/vista seleccionada
+            const targetPage = document.getElementById('page-' + pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Función para desplazarse a secciones de la Home
+        function scrollToSection(sectionId) {
+            const homePage = document.getElementById('page-home');
+            if (homePage.classList.contains('hidden')) {
+                navigateTo('home');
+                setTimeout(() => {
+                    const el = document.getElementById(sectionId);
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            } else {
+                const el = document.getElementById(sectionId);
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
